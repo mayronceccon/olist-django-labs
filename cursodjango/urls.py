@@ -17,12 +17,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from aula04.views import index
+from aula04.views import index as Aula04Index
+from aula06.views import index as Aula06Index
+from aula06.views import edit as Aula06Edit
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('aula03.urls')),
     path('navegador', include('sistema_navegador.urls')),
-    path('aula04', index),
+    path('aula04', Aula04Index),
+    path('aula06', Aula06Index),
+    path('aula06/<int:id>', Aula06Edit),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

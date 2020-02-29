@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Aula 06
+{% endblock %}
+
+{% block content %}
+    <h1>Aula 06 - Forms</h1>
+    <fieldset>
+        <legend>Detalhes do contato</legend>
+        <form id="" action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <input name="submit" type="submit" value="Enviar">
+            </div>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Lista de contatos</legend>
+        <ul>
+            {% for contato in contatos %}
+                <li>{{ contato }}</li>
+            {% endfor %}
+        </ul>
+    </fieldset>
+{% endblock %}
