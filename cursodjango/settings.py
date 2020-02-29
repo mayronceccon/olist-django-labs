@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'sistema_navegador',
     'aula03',
     'aula04',
+    'aula05',
 ]
 
 MIDDLEWARE = [
