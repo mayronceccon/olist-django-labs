@@ -13,20 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf import settings
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from aula04.views import index as Aula04Index
-from aula06.views import index as Aula06Index
-from aula06.views import edit as Aula06Edit
+from django.conf.urls.static import static
+from django.conf import settings
+from aula04.views import index
+from aula06.views import index as index6, edit
+from aula07.views import index as index7, restrita, logout_view, permission_view
+from aula09.views import index9
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('aula03.urls')),
-    path('navegador', include('sistema_navegador.urls')),
-    path('aula04', Aula04Index),
-    path('aula06', Aula06Index),
-    path('aula06/<int:id>', Aula06Edit),
+    path('', include("aula03.urls")),
+    path('aula4', index),
+    path('aula6', index6),
+    path('aula6/<int:id>', edit),
+    path('entrar', index7, name='login'),
+    path('aula7/restrita', restrita),
+    path('aula7/view-carrinho', permission_view),
+    path('aula7/sair', logout_view),
+    path('aula9', index9, name="aula9"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
