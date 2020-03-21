@@ -10,7 +10,7 @@ def external_valid_names(name):
 class PetForm(forms.ModelForm):
     def clean_nome(self):
         nome = self.cleaned_data['nome']
-        external_valid_names(nome)
+        # external_valid_names(nome)
         if nome.upper() == 'PUTINHO':
             raise forms.ValidationError("Nome muito ofensivo  ¯\_₍⸍⸌̣ʷ̣̫⸍̣⸌₎_/¯ !!!")
         return nome

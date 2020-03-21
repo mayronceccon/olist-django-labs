@@ -1,4 +1,4 @@
-from aula8.models import Pet
+from aula08.models import Pet
 from django.utils import timezone
 
 
