@@ -30,13 +30,16 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+LOCAL_APPS = [
     'aula03',
     'aula04',
     'aula05',
@@ -45,9 +48,17 @@ INSTALLED_APPS = [
     'aula08',
     'aula09',
     'aula10',
+    'aula11',
 ]
 
+EXTERNAL_APPS = [
+    'debug_toolbar',
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + EXTERNAL_APPS
+
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,3 +145,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/aula7'
+
+INTERNAL_IPS = [
+    'localhost',
+    '127.0.0.1',
+]

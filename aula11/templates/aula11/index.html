@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Aula 11
+{% endblock %}
+
+{% block content %}
+    <h1>Aula 11</h1>
+    <fieldset>
+        <legend>Lista de Posts</legend>
+        <ul>
+            {% for post in posts %}
+                <li>{{ post.titulo }} | {{ post.categoria }}</li>
+            {% endfor %}
+        </ul>
+    </fieldset>
+{% endblock %}
